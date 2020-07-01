@@ -50,7 +50,7 @@ PurplePluginPrefFrame *get_prefs_frame(PurplePlugin *plugin) {
 	    statuses = g_list_next(statuses)) {
 		if(! purple_savedstatus_is_transient(statuses->data)) {
 			gchar *creation_time = NULL;
-			creation_time = g_strdup_printf("%d", purple_savedstatus_get_creation_time(statuses->data));
+			creation_time = g_strdup_printf("%ld", purple_savedstatus_get_creation_time(statuses->data));
 			purple_plugin_pref_add_choice(ppref, (gchar *)purple_savedstatus_get_title(statuses->data), creation_time);
 			/*
 			 * FIXME: memleak! how can we free this after the frame has
